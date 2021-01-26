@@ -1,0 +1,58 @@
+$lightGrey: rgba(255, 255, 255, 0.2)
+$greyBorder: 1px solid $lightGrey
+$yellow: #E8C300	
+$maxWidth: 1440
+$maxWidth: $maxWidth - 320
+@mixin adaptiv-font($pcSize, $mobSize)
+ 	$addSize: $pcSize - $mobSize
+		font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 20rem) / #{$maxWidth}))
+
+@mixin adaptiv-rem($pcSize, $mobSize, $prop)
+ 	$addSize: $pcSize - $mobSize
+		#{$prop}: calc(#{$mobSize + rem} + #{$addSize} * ((100vw - 20rem) / #{$maxWidth}))
+
+@mixin adaptiv-px($pcSize, $mobSize, $prop)
+ 	$addSize: $pcSize - $mobSize
+		#{$prop}: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 20rem) / #{$maxWidth}))
+//!-----------------------------------
+// @mixin adaptiv-width($pcSize, $mobSize)
+// 	width: calc(#{$mobSize + px} + #{$pcSize - $mobSize} * ((100vw - 20rem) / #{$maxWidth - 320}))
+
+// @mixin adaptiv-height($pcSize, $mobSize)
+// 	height: calc(#{$mobSize + px} + #{$pcSize - $mobSize} * ((100vw - 20rem) / #{$maxWidth - 320}))
+
+// @mixin adaptiv-margin($pcSize, $mobSize, $direction)
+// 	margin#{$direction}: calc(#{$mobSize + px} + #{$pcSize - $mobSize} * ((100vw - 20rem) / #{$maxWidth - 320}))
+//!-----------------------------------
+@mixin font($font_name, $file_name, $weight, $style)
+   @font-face
+      font-family: $font_name
+      font-display: swap
+      src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2")
+      font-weight: #{$weight}
+      font-style: #{$style}
+//!-----------------------------------
+@mixin Caption()
+	font-family: OpenSans-Bold
+	font-style: normal
+	font-weight: 700
+	line-height: 1.125rem
+	letter-spacing: 0em
+	text-align: center
+	color: #ffffff
+	text-decoration: none
+	font-size: .75rem
+
+@mixin Heading1()
+	font-family: Banny-Round
+	letter-spacing: 0em
+	text-align: center
+	font-size: 6rem
+	line-height: 8.6875rem
+
+@mixin Heading2()
+	font-family: Banny-Round
+	line-height: 3rem
+	letter-spacing: 0em
+	text-align: center
+	font-size: 2.25rem

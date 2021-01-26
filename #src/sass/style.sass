@@ -1,9 +1,244 @@
-@mixin font($font_name, $file_name, $weight, $style) 
-	@font-face
-		font-family: $font_name
-		font-display: swap
-		src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2")
-		font-weight: #{$weight}
-		font-style: #{$style}
-
+@import "_variables.sass"
 @import "_fonts.sass"
+@import '~normalize.css/normalize'
+//!----------------------------------
+html
+	@media screen and ( min-width: 90rem )
+		@include adaptiv-font(16, 10)
+	@media screen and ( max-width: 90rem )
+		@include adaptiv-font(16, 20)
+	@media screen and ( max-width:  48rem)
+		@include adaptiv-font(20, 10)
+
+body
+	position: relative
+	overflow-x: hidden
+	min-height: 100vh
+
+.container
+	margin: auto
+	padding: 0 .9375rem 0 .9375rem
+	@media screen and ( min-width: 90rem )
+		max-width: 80rem
+	@media screen and ( max-width: 90rem )
+		max-width: 80rem
+
+.btn-primary
+	background: $yellow
+	border: 0
+	border-radius: .3125rem
+	color: #ffffff
+	@include Caption()
+
+.btn-o
+	background: rgba(0, 0, 0, 0)
+	border: .0625rem solid rgba(255, 255, 255, 0.5)
+	box-sizing: border-box
+	border-radius: .3125rem
+	color: #ffffff
+	@include Caption()
+
+.btn-down-icon
+	width: 1.25rem
+	height: 1.25rem
+
+// .header:after
+//    content: ''
+//    position: absolute
+//    background: red
+//    left: 50%
+//    top: 0
+//    width: .125rem
+//    height: 100% 
+
+//!----------------------------------
+.header
+	background-image: url("../img/header-bg.png")
+	background-repeat: no-repeat
+	background-position: center
+	background-size: cover
+	height: 100vh
+
+// .header:after
+//    content: ''
+//    position: absolute
+//    background: red
+//    left: 50%
+//    top: 0
+//    width: .125rem
+//    height: 100%
+
+.header__flex
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+	min-height: 100%
+
+.navbar
+	display: flex
+	flex-direction: row
+	align-items: flex-start
+	justify-content: space-between
+
+.navbar_logo_wrapper
+	padding-top: 1.5625rem
+	margin: 0 2.1875rem
+	position: relative
+	@include adaptiv-px(150, 100, "width")
+
+.logo
+	position: absolute
+	@include adaptiv-px(150, 100, "width")
+
+.navbar_menu
+	display: flex
+	flex-direction: row
+	list-style-type: none
+	width: calc( (100% - 9.375rem)/2 )
+	padding-left: 0
+	margin: 0
+
+.navbar_item
+	height: 6.25rem
+	display: flex
+	align-items: center
+	justify-content: center
+	flex-grow: 4
+	border-bottom: $greyBorder
+
+.navbar_item > a
+	@include Caption()
+//!----------------------------------
+.header_content
+	display: flex
+	position: relative
+	flex-direction: row
+	align-items: stretch
+	justify-content: space-between
+	flex: 1 1 auto
+
+.header_content-part
+	display: flex
+	width: 15%
+
+.header_content_left
+	align-items: center
+	justify-content: flex-start
+
+.header_content_middle
+	width: 53.0625rem
+	border-left: $greyBorder
+	border-right: $greyBorder
+	position: relative
+
+.header-date
+	writing-mode: vertical-rl
+	transform: rotate(180deg)
+	@include Caption()
+
+.header_content-wrapper
+	padding: 0 .9375rem
+	display: flex
+	width: 100%
+	flex-direction: column
+	align-items: center
+	justify-content: center
+
+.header_content_text
+	display: flex
+	flex-direction: column
+	text-align: center
+
+.header_under-text
+	@include Caption()
+
+.header_under-text
+	letter-spacing: 0.5em
+
+.header_name
+	color: #ffffff
+	@include Heading1()
+
+.header_btns:before
+	content: ''
+	position: absolute
+	border-radius: 3.125rem
+	height: .3125rem
+	background-color: $yellow
+	left: 50%
+	margin-left: -1.875rem
+	width: 3.75rem
+
+.header_btns_wrapper
+	display: flex
+	flex-wrap: wrap
+	justify-content: center
+
+.header_btns_wrapper > .btn
+	margin-left: 1.25rem
+	margin-right: 1.25rem
+	margin-top: 2.25rem
+	width: 12.5rem
+	height: 3.75rem
+
+.header_content_right
+	display: flex
+	align-items: center
+	justify-content: flex-end
+
+.header_social_wrapper
+	display: flex
+	flex-direction: column
+	align-content: flex-end
+
+.header_social
+	display: flex
+	align-items: center
+	justify-content: center
+	width: 3.75rem
+	height: 3.75rem
+	border: $greyBorder
+	border-radius: 50%
+	margin: .625rem
+
+.header_social-icon
+	width: 1.25rem
+	height: 1.25rem
+
+.header_btn-down_wrapper
+	top: 0
+	position: absolute
+	display: flex
+	flex-direction: column
+	z-index: 1
+	height: 100%
+	align-items: center
+
+.btn-down_box
+	border: $greyBorder
+	border-radius: 50%
+	width: 3.75rem
+	height: 3.75rem
+	display: flex
+	align-items: center
+	justify-content: center
+
+.btn-down_box__outer
+	width: 2.5rem
+	height: 2.5rem
+	background: #ffffff
+	border-radius: 50%
+	display: flex
+	align-items: center
+	justify-content: center
+
+.btn-down_line__up
+	margin-top: 5.625rem
+	background: $lightGrey
+	flex-grow: 1
+	width: 1px
+
+.btn-down_line__down
+	background: $lightGrey
+	width: 1px
+	height: 6.25rem
