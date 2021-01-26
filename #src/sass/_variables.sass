@@ -36,23 +36,73 @@ $maxWidth: $maxWidth - 320
 	font-family: OpenSans-Bold
 	font-style: normal
 	font-weight: 700
-	line-height: 1.125rem
+	line-height: 1.125rem //18px
 	letter-spacing: 0em
 	text-align: center
 	color: #ffffff
 	text-decoration: none
-	font-size: .75rem
+	font-size: .75rem //12px
+
+@mixin BlockTextPrimary()
+	font-family: OpenSans-Regular
+	font-size: .875rem //14px
+	font-style: normal
+	font-weight: 400
+	line-height: 1.5rem //24px
+	letter-spacing: 0em
+	text-align: center
+
+@mixin BlockTextBold()
+	font-family: OpenSans-Bold
+	font-size: 1.125rem //18px
+	font-style: normal
+	font-weight: 700
+	line-height: 1.75rem //28px
+	letter-spacing: 0em
+	text-align: center
 
 @mixin Heading1()
 	font-family: Banny-Round
 	letter-spacing: 0em
 	text-align: center
-	font-size: 6rem
-	line-height: 8.6875rem
+	font-size: 6rem //96px
+	line-height: 8.6875rem //139px
 
 @mixin Heading2()
 	font-family: Banny-Round
-	line-height: 3rem
+	line-height: 3rem //48px
 	letter-spacing: 0em
 	text-align: center
-	font-size: 2.25rem
+	font-size: 2.25rem //36px
+//!-----------------------------------
+@mixin PseudoYellowLine()
+	content: ''
+	position: absolute
+	border-radius: 3.125rem
+	height: .3125rem
+	background-color: $yellow
+	left: 50%
+	margin-left: -1.875rem
+	width: 3.75rem
+
+@mixin PseudoYellowSquare($direction)
+	@if ($direction == 'r')
+		content: ''
+		position: absolute
+		right: 0
+		margin-right: -7.8125rem //125px
+		width: 15.625rem //250px
+		height: 15.625rem //250px
+		border: 20px solid #E8C300
+		box-sizing: border-box
+		border-radius: .3125rem //5px
+	@if ($direction == 'l')
+		content: ''
+		position: absolute
+		left: 0
+		margin-left: -7.8125rem //125px
+		width: 15.625rem //250px
+		height: 15.625rem //250px
+		border: 20px solid #E8C300
+		box-sizing: border-box
+		border-radius: .3125rem //5px
