@@ -37,7 +37,6 @@ $maxWidth: $maxWidth - 320
 	font-style: normal
 	font-weight: 700
 	line-height: 1.125rem //18px
-	letter-spacing: 0em
 	text-align: center
 	color: #ffffff
 	text-decoration: none
@@ -86,23 +85,18 @@ $maxWidth: $maxWidth - 320
 	width: 3.75rem
 
 @mixin PseudoYellowSquare($direction)
+	content: ''
+	position: absolute
+	border: solid #E8C300
+	box-sizing: border-box
+	border-radius: .3125rem //5px
+	box-shadow: inset 0px 0px 100px 0px rgba(0, 0, 0, 0.5), 0px 0px 100px 0px rgba(0, 0, 0, 0.5)
+	@include adaptiv-px($pcSize: 250, $mobSize: 75, $prop: "width")
+	@include adaptiv-px($pcSize: 250, $mobSize: 75, $prop: "height")
+	@include adaptiv-px($pcSize: 20, $mobSize: 10, $prop: "border-width")
 	@if ($direction == 'r')
-		content: ''
-		position: absolute
 		right: 0
-		margin-right: -7.8125rem //125px
-		width: 15.625rem //250px
-		height: 15.625rem //250px
-		border: 20px solid #E8C300
-		box-sizing: border-box
-		border-radius: .3125rem //5px
+		@include adaptiv-px($pcSize: -125, $mobSize: -37.5, $prop: "margin-right")
 	@if ($direction == 'l')
-		content: ''
-		position: absolute
 		left: 0
-		margin-left: -7.8125rem //125px
-		width: 15.625rem //250px
-		height: 15.625rem //250px
-		border: 20px solid #E8C300
-		box-sizing: border-box
-		border-radius: .3125rem //5px
+		@include adaptiv-px($pcSize: -125, $mobSize: -37.5, $prop: "margin-left")

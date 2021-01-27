@@ -6,9 +6,8 @@ html
 	@media screen and ( min-width: 90rem )
 		@include adaptiv-font(16, 10)
 	@media screen and ( max-width: 90rem )
-		@include adaptiv-font(16, 20)
-	@media screen and ( max-width:  48rem)
-		@include adaptiv-font(20, 10)
+		@include adaptiv-font(16, 10)
+	
 
 body
 	position: relative
@@ -126,7 +125,7 @@ body
 	justify-content: flex-start
 
 .header_content_middle
-	width: 53.0625rem
+	width: 53.125rem
 	border-left: $greyBorder
 	border-right: $greyBorder
 	position: relative
@@ -240,21 +239,35 @@ body
 .block
 	min-height: 42.1875rem
 	height: 1px
+	display: flex
+	justify-content: center
+	position: relative
+	@media screen and ( max-width: 768px )
+		padding-bottom: 3.125rem
+		
 
 .block-part
 	display: flex
 	flex: 1 1 50%
 	align-items: center
 	justify-content: center
+	@media screen and ( max-width: 768px )
+		flex: 1 1 100%
+		
 
 .block__flex
+	position: relative
 	height: 100%
 	display: flex
 	flex-direction: row
+	flex-wrap: wrap
 
 .block_heading
 	@include Heading2()
 	
+.block_text_wrapper
+	padding: 0 .9375rem
+
 .block_text__primary
 	@include BlockTextPrimary()
 
@@ -264,19 +277,62 @@ body
 	@include BlockTextBold()
 
 .block_image
-	width: 29.6875rem
-	height: 29.6875rem
 	box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.5)
+	@include adaptiv-px($pcSize: 475, $mobSize: 150, $prop: "width")
+	@include adaptiv-px($pcSize: 475, $mobSize: 150, $prop: "height")
 
 .block_image_wrapper
 	position: relative
 	display: flex
 	align-items: center
 
-.block_image_wrapper:before
+.block_image_wrapper__right:before
 	@include PseudoYellowSquare('r')
-	
 
+
+.block_image_wrapper__left:before
+	@include PseudoYellowSquare('l')
+
+.block_left
+	order: 2
+.block_right
+	order: 3
+
+.block_lines
+	position: absolute
+	height: 100%
+	width: 53.125rem
+	border-left: $greyBorder
+	border-right: $greyBorder
+	
+.block_lines:before
+	content: ''
+	position: absolute
+	top: 0
+	width: 1px 
+	background: $lightGrey
+	height: 100%
+	left: 50%
+
+.text__white
+	color: #ffffff
+
+.block_top
+	position: absolute
+	height: 5.3125rem	
+	width: 100%
+	display: flex
+	flex: 0 0 100%
+	justify-content: center
+	align-items: center
+	order: 1
+	@media screen and ( max-width: 768px )
+		position: relative
+		
+.block_name
+	letter-spacing: 0.5em
+	@include Caption()
+	
 //!----------------------------------
 .about_text
 	margin-top: .3125rem
@@ -284,4 +340,17 @@ body
 
 .about_text:before
 	@include PseudoYellowLine()
-	
+//!----------------------------------
+.block__team
+	background-image: url("../img/ourteam.png")
+	background-repeat: no-repeat
+	background-position: center
+	background-size: cover
+
+@media screen and ( max-width: 768px )
+	.block__dark .block_left	
+		order: 3
+	.block__dark .block_right
+		order: 2
+	.block__dark .block_image_wrapper__left:before
+		@include PseudoYellowSquare('r')
