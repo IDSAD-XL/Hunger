@@ -1075,3 +1075,9 @@ body {
     margin-right: calc(0px + -125 * ((100vw - 20rem) / 1120));
   }
 }
+
+@media screen and (max-width: 769px) and (min-width: 375px) {
+  .book_form {
+    max-width: 70%;
+  }
+}
