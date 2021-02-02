@@ -7,13 +7,13 @@ $maxWidth: $maxWidth - 320
  	$addSize: $pcSize - $mobSize
 		font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 20rem) / #{$maxWidth}))
 
-@mixin adaptiv-rem($pcSize, $mobSize, $prop)
- 	$addSize: $pcSize - $mobSize
-		#{$prop}: calc(#{$mobSize + rem} + #{$addSize} * ((100vw - 20rem) / #{$maxWidth}))
-
 @mixin adaptiv-px($pcSize, $mobSize, $prop)
  	$addSize: $pcSize - $mobSize
 		#{$prop}: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 20rem) / #{$maxWidth}))
+
+@mixin adaptiv-px-Max($maxLocalWidth, $pcSize, $mobSize, $prop)
+ 	$addSize: $pcSize - $mobSize
+		#{$prop}: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 20rem) / #{$maxLocalWidth}))
 //!-----------------------------------
 // @mixin adaptiv-width($pcSize, $mobSize)
 // 	width: calc(#{$mobSize + px} + #{$pcSize - $mobSize} * ((100vw - 20rem) / #{$maxWidth - 320}))
@@ -69,10 +69,18 @@ $maxWidth: $maxWidth - 320
 
 @mixin Heading2()
 	font-family: Banny-Round
-	line-height: 3rem //48px
+	line-height: 3.5rem
 	letter-spacing: 0em
 	text-align: center
 	font-size: 2.25rem //36px
+
+@mixin TextSmGrey()
+	font-family: OpenSans-Regular
+	font-style: normal
+	font-weight: normal
+	font-size: 12px
+	line-height: 12px
+	color: rgba(51, 51, 51, 0.5)
 //!-----------------------------------
 @mixin PseudoYellowLine()
 	content: ''
@@ -91,12 +99,20 @@ $maxWidth: $maxWidth - 320
 	box-sizing: border-box
 	border-radius: .3125rem //5px
 	box-shadow: inset 0px 0px 100px 0px rgba(0, 0, 0, 0.5), 0px 0px 100px 0px rgba(0, 0, 0, 0.5)
-	@include adaptiv-px($pcSize: 250, $mobSize: 75, $prop: "width")
-	@include adaptiv-px($pcSize: 250, $mobSize: 75, $prop: "height")
-	@include adaptiv-px($pcSize: 20, $mobSize: 10, $prop: "border-width")
+	@media screen and ( max-width: 768px )
+		@include adaptiv-px($pcSize: 250, $mobSize: 75, $prop: "width")
+		@include adaptiv-px($pcSize: 250, $mobSize: 75, $prop: "height")
+		@include adaptiv-px($pcSize: 20, $mobSize: 5, $prop: "border-width")
+	@media screen and ( min-width: 768px )
+		@include adaptiv-px($pcSize: 250, $mobSize: 0, $prop: "width")
+		@include adaptiv-px($pcSize: 250, $mobSize: 0, $prop: "height")
+		@include adaptiv-px($pcSize: 20, $mobSize: 0, $prop: "border-width")
 	@if ($direction == 'r')
 		right: 0
-		@include adaptiv-px($pcSize: -125, $mobSize: -37.5, $prop: "margin-right")
+		@media screen and ( max-width: 768px )
+			@include adaptiv-px($pcSize: -125, $mobSize: -37.5, $prop: "margin-right")
+		@media screen and ( min-width: 768px )
+			@include adaptiv-px($pcSize: -125, $mobSize: 0, $prop: "margin-right")
 	@if ($direction == 'l')
 		left: 0
 		@include adaptiv-px($pcSize: -125, $mobSize: -37.5, $prop: "margin-left")

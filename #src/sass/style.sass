@@ -7,12 +7,12 @@ html
 		@include adaptiv-font(16, 10)
 	@media screen and ( max-width: 90rem )
 		@include adaptiv-font(16, 10)
-	
 
 body
 	position: relative
 	overflow-x: hidden
 	min-height: 100vh
+	width: 100vw
 
 .container
 	margin: auto
@@ -22,11 +22,17 @@ body
 	@media screen and ( max-width: 90rem )
 		max-width: 80rem
 
+.btn
+	display: flex
+	align-items: center
+	justify-content: center
+
 .btn-primary
 	background: $yellow
 	border: 0
 	border-radius: .3125rem
 	color: #ffffff
+	height: 3.75rem //60px
 	@include Caption()
 
 .btn-o
@@ -35,20 +41,18 @@ body
 	box-sizing: border-box
 	border-radius: .3125rem
 	color: #ffffff
+	height: 3.75rem //60px
 	@include Caption()
 
 .btn-down-icon
 	width: 1.25rem
 	height: 1.25rem
 
-// .header:after
-//    content: ''
-//    position: absolute
-//    background: red
-//    left: 50%
-//    top: 0
-//    width: .125rem
-//    height: 100% 
+.inpt-primary
+	background: #E5E5E5
+	border-radius: .3125rem //5px
+	border: 0
+	height: 3.75rem //60px
 
 //!----------------------------------
 .header
@@ -160,7 +164,7 @@ body
 
 .header_btns:before
 	@include PseudoYellowLine()
-	
+
 .header_btns_wrapper
 	display: flex
 	flex-wrap: wrap
@@ -171,7 +175,6 @@ body
 	margin-right: 1.25rem
 	margin-top: 2.25rem
 	width: 12.5rem
-	height: 3.75rem
 
 .header_content_right
 	display: flex
@@ -244,16 +247,16 @@ body
 	position: relative
 	@media screen and ( max-width: 768px )
 		padding-bottom: 3.125rem
-		
 
 .block-part
 	display: flex
+	flex-direction: column
 	flex: 1 1 50%
 	align-items: center
 	justify-content: center
 	@media screen and ( max-width: 768px )
 		flex: 1 1 100%
-		
+		margin-bottom: 1.5625rem
 
 .block__flex
 	position: relative
@@ -264,7 +267,7 @@ body
 
 .block_heading
 	@include Heading2()
-	
+
 .block_text_wrapper
 	padding: 0 .9375rem
 
@@ -289,7 +292,6 @@ body
 .block_image_wrapper__right:before
 	@include PseudoYellowSquare('r')
 
-
 .block_image_wrapper__left:before
 	@include PseudoYellowSquare('l')
 
@@ -304,12 +306,12 @@ body
 	width: 53.125rem
 	border-left: $greyBorder
 	border-right: $greyBorder
-	
+
 .block_lines:before
 	content: ''
 	position: absolute
 	top: 0
-	width: 1px 
+	width: 1px
 	background: $lightGrey
 	height: 100%
 	left: 50%
@@ -319,7 +321,7 @@ body
 
 .block_top
 	position: absolute
-	height: 5.3125rem	
+	height: 5.3125rem
 	width: 100%
 	display: flex
 	flex: 0 0 100%
@@ -328,14 +330,32 @@ body
 	order: 1
 	@media screen and ( max-width: 768px )
 		position: relative
-		
+
+.block_bottom
+	position: absolute
+	bottom: 0
+	height: 5.3125rem
+	width: 100%
+	display: flex
+	flex: 0 0 100%
+	justify-content: center
+	align-items: center
+	order: 4
+	@media screen and ( max-width: 768px )
+		position: relative
+	@include TextSmGrey()
+
 .block_name
 	letter-spacing: 0.5em
 	@include Caption()
-	
+
 //!----------------------------------
+.block__about
+	@media screen and ( max-width: 768px )
+		padding-top: 3.125rem
+		
+
 .about_text
-	margin-top: .3125rem
 	position: relative
 
 .about_text:before
@@ -348,9 +368,46 @@ body
 	background-size: cover
 
 @media screen and ( max-width: 768px )
-	.block__dark .block_left	
+	.block__dark .block_left
 		order: 3
 	.block__dark .block_right
 		order: 2
 	.block__dark .block_image_wrapper__left:before
 		@include PseudoYellowSquare('r')
+
+//!-----------------------------------
+.book-form_wrapper
+	display: flex
+	justify-content: center
+	align-items: center
+	position: relative
+	padding-top: 1.25rem
+
+.book-form_wrapper:before
+	top: 0
+	@include PseudoYellowLine()
+	
+
+.book_form
+	display: flex
+	flex-direction: row
+	flex-wrap: wrap
+	justify-content: space-between
+
+.book_form_item_wrapper
+	display: flex
+	flex: 1 1 17.3125rem
+	padding: .3125rem .3125rem //5px 7.5px
+	@include TextSmGrey()
+
+.book_form_item
+	display: flex
+	flex: 1 1 auto
+	text-indent: 1.25rem
+
+.book_form_item
+	font-size: .875rem //14px
+
+.book_form_button
+	padding: 0
+	width: 100%
