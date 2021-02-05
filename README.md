@@ -1,1 +1,0 @@
-Just type "npm i" and start coding :D

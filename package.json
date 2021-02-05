@@ -31,13 +31,14 @@
 		"imagemin-pngquant": "^9.0.1",
 		"jquery": "^3.5.1",
 		"jquery-pjax": "^2.0.1",
-		"node-normalize-scss": "^8.1.2"
+		"node-normalize-scss": "^8.1.2",
+		"slick-carousel": "^1.8.1"
 	},
 	"dependencies": {
-		"Package": "0.0.1",
 		"node-sass-tilde-importer": "^1.0.2",
 		"normalize-scss": "^7.0.1",
 		"normalize.css": "^8.0.1",
+		"Package": "0.0.1",
 		"reset-css": "^5.0.1"
 	}
 }

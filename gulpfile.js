@@ -25,7 +25,10 @@ let path = {
 		img: source_folder + "/img/**/*.{jpg,png,svg,gif,ico,webp}",
 	},
 	clean: "./" + project_folder + "/",
-	cleanFonts: "./" + source_folder + "/sass/_fonts.sass"
+	cleanFonts: "./" + source_folder + "/sass/_fonts.sass",
+	jsLibs: ['node_modules/jquery/dist/jquery.min.js',
+			'node_modules/slick-carousel/slick/slick.min.js'
+			]
 }
 
 let { src, dest } = require('gulp'),
@@ -63,6 +66,13 @@ function html() {
 	return src(path.src.html)
 		.pipe(fileinclude())
 		.pipe(dest(path.build.html))
+		.pipe(browsersync.stream())
+}
+
+function libsJs(){
+	return src(path.jsLibs)
+		.pipe(concat('libs.min.js'))
+		.pipe(dest(path.build.js))
 		.pipe(browsersync.stream())
 }
 
@@ -166,7 +176,7 @@ function clean(params) {
 	return del(path.clean);
 }
 
-let build = gulp.series(clean, gulp.parallel(js, html, css, images, fonts), fontsStyle);
+let build = gulp.series(clean, gulp.parallel(js, libsJs, html, css, images, fonts), fontsStyle);
 let watch = gulp.parallel(build, watchfiles, browserSync);
 
 exports.fontsStyle = fontsStyle;
