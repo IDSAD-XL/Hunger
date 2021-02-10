@@ -22,7 +22,7 @@ body
 	padding: 0 .9375rem 0 .9375rem
 	@media screen and ( min-width: 1440px )
 		max-width: 80rem
-	@media screen and ( max-width: 1440px )
+	@media screen and ( max-width: 1439px )
 		max-width: 64rem
 	
 .btn
@@ -285,14 +285,34 @@ body
 
 .block_image
 	box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.5)
-	@include adaptiv-px($pcSize: 475, $mobSize: 120, $prop: "width")
-	@include adaptiv-px($pcSize: 475, $mobSize: 120, $prop: "height")
+	max-width: 100%
+	@media screen and ( max-width: 768px )
+		@include adaptiv-px($pcSize: 475, $mobSize: 120, $prop: "width")
+		@include adaptiv-px($pcSize: 475, $mobSize: 120, $prop: "height")
+		
 
 .block_image_wrapper
 	position: relative
+	flex-direction: row
 	display: flex
 	align-items: center
 	
+.block_left.block-part_img
+	@media screen and ( min-width: 768px )
+		align-items: flex-start
+
+.block_right.block-part_img
+	@media screen and ( min-width: 768px )
+		align-items: flex-end
+
+.block_image_wrapper__left
+	@media screen and ( min-width: 768px )
+		@include adaptiv-px($pcSize: 125, $mobSize: 37.5, $prop: "left")
+		@include adaptiv-px($pcSize: 150, $mobSize: 37.5, $prop: "padding-right")
+.block_image_wrapper__right
+	@media screen and ( min-width: 768px )
+		@include adaptiv-px($pcSize: 125, $mobSize: 37.5, $prop: "right")
+		@include adaptiv-px($pcSize: 150, $mobSize: 37.5, $prop: "padding-left")
 
 .block_image_wrapper__right:before
 	@include PseudoYellowSquare('r')
@@ -353,12 +373,13 @@ body
 	letter-spacing: 0.5em
 	@include Caption()
 
+.ovf-off
+
 //!----------------------------------
 .block__about
 	@media screen and ( max-width: 768px )
 		padding-top: 3.125rem
 		
-
 .about_text
 	position: relative
 
@@ -428,3 +449,5 @@ body
 
 .block__spec_slider
 	min-width: 0
+
+

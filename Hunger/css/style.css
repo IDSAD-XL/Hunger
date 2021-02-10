@@ -15,6 +15,14 @@
 }
 
 @font-face {
+  font-family: "OpenSans-Bold";
+  font-display: swap;
+  src: url("../fonts/OpenSans-Bold.woff") format("woff"), url("../fonts/OpenSans-Bold.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "Roboto-Bold";
   font-display: swap;
   src: url("../fonts/Roboto-Bold.woff") format("woff"), url("../fonts/Roboto-Bold.woff2") format("woff2");
@@ -26,14 +34,6 @@
   font-family: "OpenSans-Regular";
   font-display: swap;
   src: url("../fonts/OpenSans-Regular.woff") format("woff"), url("../fonts/OpenSans-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "OpenSans-Bold";
-  font-display: swap;
-  src: url("../fonts/OpenSans-Bold.woff") format("woff"), url("../fonts/OpenSans-Bold.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -884,12 +884,12 @@ body {
 
 .block_image {
   box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.5);
-  width: calc(120px + 355 * ((100vw - 20rem) / 1120));
-  height: calc(120px + 355 * ((100vw - 20rem) / 1120));
+  max-width: 100%;
 }
 
 .block_image_wrapper {
   position: relative;
+  flex-direction: row;
   display: flex;
   align-items: center;
 }
@@ -1079,6 +1079,24 @@ body {
 }
 
 @media screen and (min-width: 768px) {
+  .block_left.block-part_img {
+    align-items: flex-start;
+  }
+
+  .block_right.block-part_img {
+    align-items: flex-end;
+  }
+
+  .block_image_wrapper__left {
+    left: calc(37.5px + 87.5 * ((100vw - 20rem) / 1120));
+    padding-right: calc(37.5px + 112.5 * ((100vw - 20rem) / 1120));
+  }
+
+  .block_image_wrapper__right {
+    right: calc(37.5px + 87.5 * ((100vw - 20rem) / 1120));
+    padding-left: calc(37.5px + 112.5 * ((100vw - 20rem) / 1120));
+  }
+
   .block_image_wrapper__right:before {
     width: calc(0px + 250 * ((100vw - 20rem) / 1120));
     height: calc(0px + 250 * ((100vw - 20rem) / 1120));
@@ -1102,7 +1120,7 @@ body {
   }
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1439px) {
   .container {
     max-width: 64rem;
   }
@@ -1112,6 +1130,11 @@ body {
   .block-part {
     flex: 1 1 100%;
     margin-bottom: 1.5625rem;
+  }
+
+  .block_image {
+    width: calc(120px + 355 * ((100vw - 20rem) / 1120));
+    height: calc(120px + 355 * ((100vw - 20rem) / 1120));
   }
 
   .block_image_wrapper__right:before {
