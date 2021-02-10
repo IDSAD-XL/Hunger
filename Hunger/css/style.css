@@ -1070,6 +1070,31 @@ body {
 
 .block__spec_slider {
   min-width: 0;
+  padding-top: 6.25rem;
+}
+
+.block__spec_slider .slick-dots {
+  display: flex;
+  flex-direction: row;
+}
+
+.block__spec_slider .slick-dots li {
+  list-style: none;
+  padding: 0 5px;
+}
+
+.block__spec_slider .slick-dots li button {
+  width: 20px;
+  height: 20px;
+  transform: scale(0.5);
+  font-size: 0;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  outline: none;
+}
+
+.block__spec_slider .slick-dots li.slick-active button {
+  background-color: #fff;
 }
 
 @media screen and (min-width: 90rem) {

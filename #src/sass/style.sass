@@ -373,8 +373,6 @@ body
 	letter-spacing: 0.5em
 	@include Caption()
 
-.ovf-off
-
 //!----------------------------------
 .block__about
 	@media screen and ( max-width: 768px )
@@ -449,5 +447,21 @@ body
 
 .block__spec_slider
 	min-width: 0
-
-
+	padding-top: 6.25rem
+	.slick-dots
+		display: flex
+		flex-direction: row
+		li
+			list-style: none
+			padding: 0 5px
+			button	
+				width: 20px
+				height: 20px
+				transform: scale(0.5)
+				font-size: 0
+				border-radius: 50%
+				background-color: rgba(255, 255, 255, 0.5)
+				outline: none
+		li.slick-active button
+			background-color: #fff
+			
